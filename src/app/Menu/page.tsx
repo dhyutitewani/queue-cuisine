@@ -1,5 +1,3 @@
-import Menu from "@/components/ui/Menu/Menu"
-
 export default function Page() {
     return (
         <main className="mt-10 ml-10">
