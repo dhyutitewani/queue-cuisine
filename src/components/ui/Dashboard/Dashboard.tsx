@@ -74,7 +74,7 @@ export default function Dashboard() {
             {/* Menu Button */}
             <div className="text-center mb-12">
                 <Link
-                    href="/Menu"
+                    href="/menu"
                     className="border-2 border-[#ff6f61] text-black text-xl font-semibold py-4 px-8 rounded-xl transform transition duration-300 ease-in-out hover:border-[#ff6f61] hover:bg-[#ff6f61] hover:text-white hover:scale-105 hover:shadow-xl"
                     >
                     Explore the Menu

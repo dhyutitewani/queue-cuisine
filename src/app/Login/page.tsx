@@ -10,7 +10,7 @@ export default function Page() {
             <div className="mt-10">
                 <Login />
             </div>
-            <Link className='mt-10 text-lg' href="/Signup"> 
+            <Link className='mt-10 text-lg' href="/signup"> 
                 To create an account 
                 <span className='text-[#ff6f61] hover:text-[#672222]'> click </span>
                 here

@@ -1,6 +1,27 @@
+'use client';
+
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function Navbar() {
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const router = useRouter();
+
+  // Check session on initial load
+  useEffect(() => {
+    // Check if the user is logged in from localStorage
+    const userSession = localStorage.getItem('userSession');
+    setIsLoggedIn(userSession === 'loggedIn');
+  }, []);
+
+  const handleLogout = () => {
+    // Remove the session from localStorage
+    localStorage.removeItem('userSession');
+    setIsLoggedIn(false); // Update the state immediately
+    router.push('/login'); // Redirect to login page after logout
+  };
+
   return (
     <nav className="block w-full mx-auto bg-white bg-opacity-90 sticky top-0 shadow lg:px-8 lg:py-3 backdrop-blur-lg backdrop-saturate-150 z-[9999]">
       <div className="container flex flex-wrap items-center justify-between mx-auto text-slate-800">
@@ -17,19 +38,22 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-              <Link href="/Cart" className="flex items-center">
+              <Link href="/cart" className="flex items-center">
                 Cart
               </Link>
             </li>
-            {/* <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-              <Link href="/Signup" className="flex items-center">
-                Register
-              </Link>
-            </li> */}
+
+            {/* Conditionally render Login or Logout */}
             <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
-              <Link href="/Login" className="flex items-center">
-                Login
-              </Link>
+              {isLoggedIn ? (
+                <button onClick={handleLogout} className="flex items-center">
+                  Logout
+                </button>
+              ) : (
+                <Link href="/login" className="flex items-center">
+                  Login
+                </Link>
+              )}
             </li>
           </ul>
         </div>

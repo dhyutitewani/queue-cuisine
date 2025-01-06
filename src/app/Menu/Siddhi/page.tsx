@@ -19,7 +19,7 @@ const Page = () => {
 		<div className="siddhi-page">
 			<section className="top-bar flex items-center relative">
 				<div className="back-button absolute left-5">
-					<Link href="/Menu">
+					<Link href="/menu">
 						<span className="back-arrow text-[#ff6f61] text-[2rem]">←</span>
 					</Link>
 				</div>
