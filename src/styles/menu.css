@@ -1,0 +1,112 @@
+/* Wrapper for the entire Cravings and Siddhi page */
+.cravings-page,
+.siddhi-page {
+	padding: 20px;
+	background-color: #f5f5f5;
+}
+
+/* Top bar styles for Cravings and Siddhi pages */
+.cravings-page .top-bar,
+.siddhi-page .top-bar {
+	background-color: #ffe5d9;
+	padding: 20px;
+	border-radius: 8px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.cravings-page .top-bar .title,
+.siddhi-page .top-bar .title {
+	font-size: 2rem;
+	color: #ff6f61;
+	font-weight: bold;
+}
+
+/* Current dishes (items) section for Cravings and Siddhi pages */
+.cravings-page .current-movies,
+.siddhi-page .current-movies {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr); /* 3 items per row */
+	gap: 60px;
+	justify-items: center;
+}
+
+/* Single item card for Cravings and Siddhi pages */
+.cravings-page .current-movie,
+.siddhi-page .current-movie {
+	width: 85%;
+    height: 100%;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	text-align: center;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for Cravings and Siddhi pages */
+.cravings-page .current-movie:hover,
+.siddhi-page .current-movie:hover {
+	transform: scale(1.05);
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Fixed size for the image for Cravings and Siddhi pages */
+.cravings-page .cm-img-box img,
+.siddhi-page .cm-img-box img {
+	width: 280px; /* Set fixed width */
+	height: 200px; /* Set fixed height */
+	object-fit: cover; /* Maintain aspect ratio without distortion */
+    padding: 5%;
+	border-bottom: 1px solid #ddd;
+}
+
+/* Title of the item for Cravings and Siddhi pages */
+.cravings-page .movie-title,
+.siddhi-page .movie-title {
+	font-size: 1.3rem;
+	color: #333;
+	margin: 10px 0;
+}
+
+/* Booking and price section for Cravings and Siddhi pages */
+/* Booking and price section for Cravings and Siddhi pages */
+.cravings-page .booking,
+.siddhi-page .booking {
+	display: flex;
+	align-items: center; /* Align items vertically centered */
+	justify-content: space-between; /* Add space between the price and button */
+	/* gap: 0px; */
+	width: 80%; /* Adjust width to suit your layout */
+	margin: 15px auto; /* Center align within the parent */
+}
+
+/* Price for Cravings and Siddhi pages */
+.cravings-page .price,
+.siddhi-page .price {
+	font-size: 1.5rem;
+	color: #ff6f61;
+	font-weight: bold;
+	margin: 0; /* Remove default margin */
+}
+
+/* Button styles for Cravings and Siddhi pages */
+.cravings-page .btn,
+.siddhi-page .btn {
+	background-color: #ff6f61;
+	color: #fff;
+	padding: 10px 15px;
+	border-radius: 4px;
+	text-decoration: none;
+	font-size: 0.9rem;
+	transition: background-color 0.3s ease;
+	margin: 0; /* Remove default margin */
+}
+
+
+/* Hover effect for the button in Cravings and Siddhi pages */
+.cravings-page .btn:hover,
+.siddhi-page .btn:hover {
+	background-color: #ff3b2e;
+}

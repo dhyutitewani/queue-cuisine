@@ -5,7 +5,7 @@ export default function Navbar() {
     <nav className="block w-full mx-auto bg-white bg-opacity-90 sticky top-0 shadow lg:px-8 lg:py-3 backdrop-blur-lg backdrop-saturate-150 z-[9999]">
       <div className="container flex flex-wrap items-center justify-between mx-auto text-slate-800">
         <Link href="/" passHref>
-          <span className="mr-4 block cursor-pointer py-1.5 text-base text-slate-800 font-semibold">
+          <span className="text-xl mr-4 block cursor-pointer py-1.5 text-slate-800 font-semibold">
             Queue & Cuisine
           </span>
         </Link>
