@@ -2,11 +2,10 @@ import Link from 'next/link';
 import * as React from 'react';
 
 export default function Login() {
-
   return (
-    <main className="bg-white p-8 rounded-sm shadow-md w-[23rem]">
-      <form>
-      <div className="mb-4">
+    <main className="bg-white p-8 rounded-sm shadow-md w-[23rem] mx-auto">
+      <form className="space-y-4">
+        <div className="mb-4">
           <input
             type="text"
             name="name"
@@ -40,13 +39,15 @@ export default function Login() {
 
 function LoginButton() {
   return (
-    <Link href="/">
+    <div className="flex justify-center">
+      <Link href="/">
         <button
-            type="submit"
-            className="mt-3 grid grid-col-1 group rounded-sm border border-gray-400 dark:bg-neutral-500/30 px-5 py-3 w-[10rem] mx-auto"
+          type="submit"
+          className="border-2 border-[#ff6f61] text-black rounded-md transform transition duration-300 ease-in-out hover:border-[#ff6f61] hover:bg-[#ff6f61] hover:text-white hover:scale-80 hover:shadow-xl px-5 py-3 w-[10rem]"
         >
-            Create Account
+          Create Account
         </button>
-    </Link>
+      </Link>
+    </div>
   );
 }

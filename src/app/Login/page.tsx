@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Login from "@/components/ui/Login/Login"
 
 export default function Page() {
@@ -9,6 +10,11 @@ export default function Page() {
             <div className="mt-10">
                 <Login />
             </div>
+            <Link className='mt-10 text-lg' href="/Signup"> 
+                To create an account 
+                <span className='text-[#ff6f61] hover:text-[#672222]'> click </span>
+                here
+            </Link>
         </div>
     )
 }   

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Menu() {
     return (
-        <main className="p-8 rounded-m">
+        <main className="bg-slate-100 p-8 rounded-m">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                 {/* Restaurant 1 */}
                 <div className="bg-white border rounded-lg p-4 w-[21rem] mx-auto">
@@ -11,7 +11,7 @@ export default function Menu() {
                     </div>
                     <h3 className="text-2xl font-semibold mb-2">Cravings</h3>
                     <Link className='text-[#ff6f61] text-lg' href="/Menu/Cravings">
-                        Menu
+                        <button className='transform transition duration-300 ease-in-out hover:scale-105 hover:text-[#5c221c]'>Menu</button>
                     </Link>
                 </div>
 
@@ -22,7 +22,7 @@ export default function Menu() {
                     </div>
                     <h3 className="text-2xl font-semibold mb-2">Siddhi Vinayak</h3>
                     <Link className='text-[#ff6f61] text-lg' href="/Menu/Siddhi">
-                        Menu
+                        <button className='transform transition duration-300 ease-in-out hover:scale-105 hover:text-[#5c221c]'>Menu</button>
                     </Link>
                 </div>
 
@@ -33,7 +33,7 @@ export default function Menu() {
                     </div>
                     <h3 className="text-2xl font-semibold mb-2">Roll Me</h3>
                     <Link className='text-[#ff6f61] text-lg' href="/Menu/Roll">
-                        Menu
+                        <button className='transform transition duration-300 ease-in-out hover:scale-105 hover:text-[#5c221c]'>Menu</button>
                     </Link>
                 </div>
             </div>

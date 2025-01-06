@@ -4,9 +4,9 @@ import * as React from 'react';
 export default function Login() {
 
   return (
-    <main className="bg-white p-8 rounded-sm shadow-md w-[23rem]">
-      <form>
-        <div className="mb-4">
+    <main className="bg-white p-8 rounded-sm shadow-md w-[23rem] mx-auto">
+      <form className="space-y-4 flex flex-col items-center">
+        <div className="mb-4 w-full">
           <input
             type="text"
             name="email"
@@ -15,7 +15,7 @@ export default function Login() {
             className="border border-gray-300 rounded-sm px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
-        <div className="mb-2">
+        <div className="mb-2 w-full">
           <input
             type="password"
             name="password"
@@ -31,13 +31,15 @@ export default function Login() {
 
 function LoginButton() {
   return (
-    <Link href="/">
+    <div className="flex justify-center w-full">
+      <Link href="/">
         <button
-            type="submit"
-            className="mt-3 grid grid-col-1 group rounded-sm border border-gray-400 dark:bg-neutral-500/30 px-5 py-3 w-[9rem] mx-auto"
+          type="submit"
+          className="border-2 border-[#ff6f61] text-black rounded-md transform transition duration-300 ease-in-out hover:border-[#ff6f61] hover:bg-[#ff6f61] hover:text-white hover:scale-80 hover:shadow-xl px-5 py-3 w-[10rem]"
         >
-            Login    
+          Login
         </button>
-    </Link>
+      </Link>
+    </div>
   );
 }

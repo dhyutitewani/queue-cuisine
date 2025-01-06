@@ -21,14 +21,14 @@ export default function Navbar() {
                 Cart
               </Link>
             </li>
-            <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+            {/* <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
               <Link href="/Signup" className="flex items-center">
                 Register
               </Link>
-            </li>
+            </li> */}
             <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
               <Link href="/Login" className="flex items-center">
-                Account
+                Login
               </Link>
             </li>
           </ul>
