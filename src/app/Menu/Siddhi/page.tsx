@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import "@/styles/menu.css";
 import Link from "next/link";
@@ -14,6 +16,25 @@ const Page = () => {
 		{ title: "Parota Curry", price: "₹60", imgSrc: "/Screenshot 2025-01-05 215328.png" },
 		{ title: "Full Meals", price: "₹70", imgSrc: "/Screenshot 2025-01-05 215340.png" },
 	];
+
+	const handleAddToCart = async (item: { title: string; price: string }) => {
+		try {
+			const response = await fetch("/api/add-to-cart", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ ...item, restaurant: "Siddhi Vinayak" }),
+			});
+
+			if (response.ok) {
+				alert(`${item.title} added to cart!`);
+			} else {
+				alert("Failed to add item.");
+			}
+		} catch (err) {
+			console.error(err);
+			alert("Something went wrong.");
+		}
+	};
 
 	return (
 		<div className="siddhi-page">
@@ -36,9 +57,9 @@ const Page = () => {
 						<h3 className="movie-title">{item.title}</h3>
 						<div className="booking">
 							<h2 className="price">{item.price}</h2>
-							<a href="#" className="btn">
+							<button className="btn" onClick={() => handleAddToCart(item)}>
 								Add to cart
-							</a>
+							</button>
 						</div>
 					</div>
 				))}

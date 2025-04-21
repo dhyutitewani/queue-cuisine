@@ -38,6 +38,11 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+              <Link href="/menu" className="flex items-center">
+                Menu
+              </Link>
+            </li>
+            <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
               <Link href="/cart" className="flex items-center">
                 Cart
               </Link>
