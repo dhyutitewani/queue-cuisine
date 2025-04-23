@@ -20,7 +20,7 @@ const Page = () => {
 	// LocalStorage persistence logic
 	const handleAddToCart = async (dish: { title: string; price: string }) => {
 		try {
-			const response = await fetch("/api/add-to-cart", {
+			const response = await fetch("/api/cart-func/add-to-cart", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ ...dish, restaurant: "Roll Me" }),

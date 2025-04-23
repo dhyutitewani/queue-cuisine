@@ -1,28 +1,22 @@
 {
-  "2025-04-21": [
+  "2025-04-22": [
+    {
+      "title": "Chocolate Donut",
+      "price": "₹50",
+      "imgSrc": "/Screenshot 2025-01-05 215533.png",
+      "restaurant": "Cravings"
+    },
+    {
+      "title": "Panner Roll",
+      "price": "₹70",
+      "imgSrc": "/Screenshot 2025-01-05 215419.png",
+      "restaurant": "Roll Me"
+    },
     {
       "title": "Fried Rice Combo",
       "price": "₹125",
       "imgSrc": "/Screenshot 2025-01-05 215238.png",
       "restaurant": "Siddhi Vinayak"
-    },
-    {
-      "title": "Gulab Jamun",
-      "price": "₹20",
-      "imgSrc": "/Screenshot 2025-01-05 215320.png",
-      "restaurant": "Siddhi Vinayak"
-    },
-    {
-      "title": "Chicken Biryani",
-      "price": "₹120",
-      "imgSrc": "/Screenshot 2025-01-05 215426.png",
-      "restaurant": "Roll Me"
-    },
-    {
-      "title": "Kitkat Cake",
-      "price": "₹79",
-      "imgSrc": "/Screenshot 2025-01-05 215525.png",
-      "restaurant": "Cravings"
     }
   ]
 }
