@@ -1,5 +1,6 @@
 'use client';
 
+import '@/styles/globals.css';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -19,7 +20,7 @@ export default function Navbar() {
     // Remove the session from localStorage
     localStorage.removeItem('userSession');
     setIsLoggedIn(false); // Update the state immediately
-    router.push('/login'); // Redirect to login page after logout
+    router.push('/'); // Redirect to login page after logout
   };
 
   return (
@@ -47,6 +48,14 @@ export default function Navbar() {
                 Cart
               </Link>
             </li>
+
+            {isLoggedIn && (
+              <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">
+                <Link href="/profile" className="flex items-center">
+                  Profile
+                </Link>
+              </li>
+            )}
 
             {/* Conditionally render Login or Logout */}
             <li className="flex items-center p-1 text-sm gap-x-2 text-slate-600">

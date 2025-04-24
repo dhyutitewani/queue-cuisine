@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function Login() {
+  const [namem, setName] = useState(''); // State for name (not used in the form)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -24,18 +25,20 @@ export default function Login() {
     if (response.ok) {
       // Store session in localStorage after successful login
       localStorage.setItem('userSession', 'loggedIn');
+      localStorage.setItem('name', data.user.name);      
+      localStorage.setItem('email', data.user.email);
+
       setSuccessMessage('Logged in successfully!');
       
       // Redirect to home page first, then reload
       setTimeout(() => {
-        router.push('/'); // Redirect to the home page
-      }, 0); // Zero delay to ensure immediate redirect
+        router.push('/');
+      }, 0); 
 
       // Refresh the page after redirect (after the page loads)
       setTimeout(() => {
-        window.location.reload(); // Reload page after redirection
-      }, 100); // Delay for 1.5 seconds before reload to ensure page load
-
+        window.location.reload(); 
+      }, 100); 
     } else {
       setError('Invalid email or password');
     }
@@ -68,7 +71,7 @@ export default function Login() {
         </div>
         {error && <p className="text-red-400">{error}</p>}
         {successMessage && (
-          <p className="text-red-400">{successMessage}</p> // Success message in green
+          <p className="text-green-400">{successMessage}</p> // Success message in green
         )}
         <div className="flex justify-center w-full">
           <button
