@@ -16,6 +16,8 @@ import {
   ChartData,
 } from 'chart.js';
 
+const source = new EventSource("/real-data");
+
 // Register Chart.js components
 ChartJS.register(
   CategoryScale,
@@ -66,19 +68,18 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const res = await fetch('http://127.0.0.1:8000/real-time-data');
-        const json = await res.json();
-        setData(json);
-      } catch (error) {
-        console.error("Error fetching real-time data:", error);
-      }
-    };
-
+        try {
+          const res = await fetch('http://127.0.0.1:8000/real-data');
+          const pcjson = await res.json();
+        } catch (error) {
+          console.error("Error fetching real-time data:", error);
+        }
+      };
+  
     // Fetch real-time data every second
-    const interval_video = setInterval(fetchData, 1000);
+    const interval_video = setInterval(fetchData, 3000);
 
-    // Update fake data every 5 seconds (this is just for testing or simulation)
+        // Update fake data every 5 seconds (this is just for testing or simulation)
     const interval_fake_data = setInterval(() => {
       setData((prevData) => ({
         ...prevData,
@@ -90,6 +91,7 @@ const Dashboard: React.FC = () => {
     return () => {
       clearInterval(interval_video);
       clearInterval(interval_fake_data);
+
     };
   }, []);
 
@@ -181,16 +183,18 @@ const Dashboard: React.FC = () => {
 
   return (
     <div>
-      <div className='flex flex-auto ml-10 mb-20 mx-auto'>
-      <h1>Real-Time People Counting</h1>
-      <div className="data-card mt-10 mr-10">
-        <h3>People Entering</h3>
-        <p>{data.people_entering}</p>
+      <div className="data-card mt-10 ml-20">
+        <h1>Real-Time People Counting</h1>
       </div>
-      <div className="data-card mt-10 ml-10">
-        <h3>People Exiting</h3>
-        <p>{data.people_exiting}</p>
-      </div>
+      <div className='flex flex-auto ml-32 mb-20 mx-auto'>
+        <div className="data-card mt-10 mr-5">
+          <h3>People Entering</h3>
+          <p>{data.people_entering}</p>
+        </div>
+        <div className="data-card mt-10 ml-5">
+          <h3>People Exiting</h3>
+          <p>{data.people_exiting}</p>
+        </div>
       </div>
       <div style={{ width: '90%', margin: '0 auto' }}>
         <h2>Real-Time Foot Traffic Dashboard</h2>
