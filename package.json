@@ -23,6 +23,8 @@
     "bcryptjs": "^2.4.3",
     "chart.js": "^4.4.9",
     "chartjs-chart-matrix": "^3.0.0",
+    "cors": "^2.8.5",
+    "cors-anywhere": "^0.4.4",
     "mongodb": "^6.12.0",
     "mongoose": "^8.9.3",
     "next": "^15.1.3",

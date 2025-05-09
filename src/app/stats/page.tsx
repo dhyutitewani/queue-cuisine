@@ -2,6 +2,7 @@
 
 import { Bar, Line } from 'react-chartjs-2';
 import React, { useEffect, useState } from 'react';
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -15,8 +16,6 @@ import {
   ChartOptions,
   ChartData,
 } from 'chart.js';
-
-const source = new EventSource("/real-data");
 
 // Register Chart.js components
 ChartJS.register(
@@ -61,37 +60,71 @@ const generateFakeWeeklyData = () => {
 
 const Dashboard: React.FC = () => {
   const [data, setData] = useState({
-    people_entering: 0,
-    people_exiting: 0,
     weeklyData: [] as { day: string; times: TimeData[] }[],
   });
 
-  useEffect(() => {
-    const fetchData = async () => {
-        try {
-          const res = await fetch('http://127.0.0.1:8000/real-data');
-          const pcjson = await res.json();
-        } catch (error) {
-          console.error("Error fetching real-time data:", error);
-        }
-      };
+  const [entering, setEntering] = useState(1);  // Random number between 1 and 13
+  const [exiting, setExiting] = useState(1); 
   
-    // Fetch real-time data every second
-    const interval_video = setInterval(fetchData, 3000);
+  useEffect(() => {
+      // const eventSource = new EventSource('http://localhost:8000/real-data');
 
-        // Update fake data every 5 seconds (this is just for testing or simulation)
+      // try {  
+      //   eventSource.onmessage = function (event) {
+      //     // Parse the incoming data
+      //     const data = event.data;
+      //     console.log("Received SSE:", event.data);
+
+      //     // Match the data format (people_entering: 10, people_exiting: 5)
+      //     const match = data.match(/people_entering: (\d+), people_exiting: (\d+)/);
+      //     if (match) {
+      //       setEntering(parseInt(match[1], 10));
+      //       setExiting(parseInt(match[2], 10));
+      //     }
+      //   };
+      // } catch (err) {
+      //   console.error('Error fetching data:', err);
+      // }
+
+    const enteringInterval = setInterval(() => {
+      setEntering((prev) => {
+        if (prev < 12) {
+          for (prev = 0; prev < 12; prev++) {
+            return prev + 1;
+          }
+        } else {
+          clearInterval(enteringInterval); // Stop incrementing when it reaches 12
+          return prev;
+        }
+      });
+    }, 5000); // Increment every second
+
+    const exitingInterval = setInterval(() => {
+      setExiting((prev) => {
+        if (prev < 3) {
+          for (prev = 0; prev < 3; prev++) {
+            return prev + 1;
+          }
+        } else {
+          clearInterval(exitingInterval); // Stop incrementing when it reaches 3
+          return prev;
+        }
+      });
+    }, 9000); // Increment every second
+    
     const interval_fake_data = setInterval(() => {
       setData((prevData) => ({
         ...prevData,
         weeklyData: generateFakeWeeklyData(),
       }));
     }, 5000);
-
+    
     // Cleanup both intervals when the component unmounts or on re-render
     return () => {
-      clearInterval(interval_video);
+      // eventSource.close();
+      // clearInterval(enteringInterval);
+      // clearInterval(exitingInterval);
       clearInterval(interval_fake_data);
-
     };
   }, []);
 
@@ -189,11 +222,11 @@ const Dashboard: React.FC = () => {
       <div className='flex flex-auto ml-32 mb-20 mx-auto'>
         <div className="data-card mt-10 mr-5">
           <h3>People Entering</h3>
-          <p>{data.people_entering}</p>
+          <p>{entering}</p>
         </div>
         <div className="data-card mt-10 ml-5">
           <h3>People Exiting</h3>
-          <p>{data.people_exiting}</p>
+          <p>{exiting}</p>
         </div>
       </div>
       <div style={{ width: '90%', margin: '0 auto' }}>
