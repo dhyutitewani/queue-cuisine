@@ -63,8 +63,8 @@ const Dashboard: React.FC = () => {
     weeklyData: [] as { day: string; times: TimeData[] }[],
   });
 
-  const [entering, setEntering] = useState(1);  // Random number between 1 and 13
-  const [exiting, setExiting] = useState(1); 
+  const [entering, setEntering] = useState(0);  // Random number between 1 and 13
+  const [exiting, setExiting] = useState(0); 
   
   useEffect(() => {
       // const eventSource = new EventSource('http://localhost:8000/real-data');
@@ -89,7 +89,7 @@ const Dashboard: React.FC = () => {
     const enteringInterval = setInterval(() => {
       setEntering((prev) => {
         if (prev < 12) {
-          for (prev = 0; prev < 12; prev++) {
+          while (prev < 12) {
             return prev + 1;
           }
         } else {
@@ -97,20 +97,20 @@ const Dashboard: React.FC = () => {
           return prev;
         }
       });
-    }, 5000); // Increment every second
+    }, 4000); // Increment every second
 
     const exitingInterval = setInterval(() => {
       setExiting((prev) => {
         if (prev < 3) {
-          for (prev = 0; prev < 3; prev++) {
+          while (prev < 3) {
             return prev + 1;
           }
         } else {
-          clearInterval(exitingInterval); // Stop incrementing when it reaches 3
+            clearInterval(exitingInterval); // Stop incrementing when it reaches 3
           return prev;
         }
       });
-    }, 9000); // Increment every second
+    }, 8000); // Increment every second
     
     const interval_fake_data = setInterval(() => {
       setData((prevData) => ({
@@ -122,8 +122,8 @@ const Dashboard: React.FC = () => {
     // Cleanup both intervals when the component unmounts or on re-render
     return () => {
       // eventSource.close();
-      // clearInterval(enteringInterval);
-      // clearInterval(exitingInterval);
+      clearInterval(enteringInterval);
+      clearInterval(exitingInterval);
       clearInterval(interval_fake_data);
     };
   }, []);
